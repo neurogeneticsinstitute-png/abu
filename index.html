@@ -1,21 +1,31 @@
+```html
 <!DOCTYPE html>
 <html lang="en-GB">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="Professional services delivering quality, reliability and excellence for businesses and individuals.">
-  <title>Epic Kids | Professional Services</title>
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:ital,wght=0,400;0,500;0,600;0,700;1,500&family=Quicksand:wght=500;600;700&display=swap" rel="stylesheet">
-  
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <title>Epic Kids Ltd | Professional Childcare Services</title>
+
+  <meta
+    name="description"
+    content="Epic Kids Ltd provides professional childcare services in a safe, supportive and engaging environment focused on learning, wellbeing and development."
+  />
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+
+  <link
+    href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700&family=Quicksand:wght@500;600;700&display=swap"
+    rel="stylesheet"
+  />
+
   <style>
     :root {
       --teal: #2a9d8f;
       --teal-dark: #1f756a;
       --teal-light: #e8f6f3;
       --coral: #f4a261;
-      --coral-soft: #fde8d8;
       --navy: #264653;
       --cream: #fffbf7;
       --white: #ffffff;
@@ -23,104 +33,127 @@
       --text-muted: #667075;
       --border: #dce8e5;
       --shadow: 0 16px 40px rgba(38, 70, 83, 0.1);
-      --radius: 16px;
-      --font-display: "Quicksand", "Segoe UI", sans-serif;
-      --font-body: "Plus Jakarta Sans", "Segoe UI", sans-serif;
+      --radius: 18px;
+
+      --font-display: "Quicksand", sans-serif;
+      --font-body: "Plus Jakarta Sans", sans-serif;
     }
 
-    *, *::before, *::after { box-sizing: border-box; }
-    html { scroll-behavior: smooth; }
+    * {
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
     body {
       margin: 0;
       font-family: var(--font-body);
-      font-size: 1.05rem;
-      line-height: 1.65;
       color: var(--text);
       background: var(--white);
+      line-height: 1.65;
     }
 
-    a { color: inherit; text-decoration: none; }
-    ul, ol { margin: 0; padding: 0; list-style: none; }
-    h1, h2, h3, h4, p { margin: 0; }
+    h1,
+    h2,
+    h3,
+    h4,
+    p {
+      margin: 0;
+    }
+
+    a {
+      text-decoration: none;
+      color: inherit;
+    }
+
+    ul {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+    }
 
     .container {
-      width: min(1140px, calc(100% - 2.5rem));
-      margin-inline: auto;
+      width: min(1140px, calc(100% - 2rem));
+      margin: auto;
+    }
+
+    .section {
+      padding: 5rem 0;
     }
 
     .eyebrow {
       font-size: 0.78rem;
-      font-weight: 700;
-      letter-spacing: 0.12em;
       text-transform: uppercase;
-      color: var(--teal);
-      margin-bottom: 0.85rem;
-    }
-    .eyebrow-light { color: rgba(255,255,255,0.85); }
-
-    h1, h2, h3 {
-      font-family: var(--font-display);
+      letter-spacing: 0.12em;
       font-weight: 700;
-      line-height: 1.2;
-      color: var(--navy);
+      color: var(--teal);
+      margin-bottom: 1rem;
     }
-    h1 { font-size: clamp(2.2rem, 5vw, 3.5rem); }
-    h2 { font-size: clamp(1.9rem, 3.5vw, 2.6rem); margin-bottom: 1rem; }
-    h3 { font-size: 1.3rem; margin-bottom: 0.5rem; }
+
+    h1,
+    h2,
+    h3 {
+      font-family: var(--font-display);
+      color: var(--navy);
+      line-height: 1.2;
+    }
+
+    h1 {
+      font-size: clamp(2.3rem, 5vw, 4rem);
+      margin-bottom: 1rem;
+    }
+
+    h2 {
+      font-size: clamp(1.9rem, 4vw, 2.7rem);
+      margin-bottom: 1rem;
+    }
+
+    h3 {
+      font-size: 1.25rem;
+      margin-bottom: 0.6rem;
+    }
 
     .lead {
-      font-size: 1.12rem;
+      font-size: 1.1rem;
       color: var(--text-muted);
-      max-width: 36rem;
+      max-width: 42rem;
     }
 
-    .section { padding: 5rem 0; }
-    .section-soft { background: var(--cream); }
-    .section-teal {
-      background: linear-gradient(135deg, var(--teal-dark), var(--teal));
-      color: rgba(255,255,255,0.9);
+    .btn-group {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 1rem;
+      margin-top: 2rem;
     }
-    .section-teal h2, .section-teal h3 { color: var(--white); }
-
-    .section-head {
-      max-width: 40rem;
-      margin-bottom: 2.75rem;
-    }
-    .section-head.center { text-align: center; margin-inline: auto; }
-    .section-head p:last-child { color: var(--text-muted); margin-top: 0.75rem; }
 
     .btn {
       display: inline-flex;
       align-items: center;
       justify-content: center;
-      padding: 0.85rem 1.5rem;
+      padding: 0.9rem 1.5rem;
       border-radius: 999px;
-      font-family: var(--font-display);
       font-weight: 700;
-      font-size: 0.95rem;
-      border: none;
-      cursor: pointer;
-      transition: transform 0.2s, box-shadow 0.2s;
+      transition: 0.2s ease;
     }
-    .btn:hover { transform: translateY(-2px); }
+
     .btn-primary {
       background: var(--coral);
       color: var(--navy);
-      box-shadow: 0 10px 24px rgba(244, 162, 97, 0.35);
     }
+
     .btn-secondary {
       background: var(--white);
-      color: var(--teal-dark);
       border: 2px solid var(--teal-light);
+      color: var(--teal-dark);
     }
-    .btn-nav {
-      background: var(--teal);
-      color: var(--white);
-      padding: 0.65rem 1.15rem;
-    }
-    .btn-full { width: 100%; }
 
-    .site-header {
+    .btn:hover {
+      transform: translateY(-2px);
+    }
+
+    header {
       position: sticky;
       top: 0;
       z-index: 100;
@@ -130,201 +163,156 @@
     }
 
     .header-inner {
+      min-height: 4.8rem;
       display: flex;
       align-items: center;
       justify-content: space-between;
-      min-height: 4.75rem;
-      gap: 1rem;
     }
 
     .logo {
       display: flex;
       align-items: center;
-      gap: 0.75rem;
+      gap: 0.8rem;
     }
+
     .logo-icon {
-      width: 2.75rem;
-      height: 2.75rem;
-      display: grid;
-      place-items: center;
+      width: 2.8rem;
+      height: 2.8rem;
       border-radius: 50%;
       background: linear-gradient(135deg, var(--teal), var(--teal-dark));
-      color: var(--white);
-      font-size: 1.35rem;
+      display: grid;
+      place-items: center;
+      color: white;
+      font-weight: 700;
     }
-    .logo-text {
-      display: flex;
-      flex-direction: column;
-      line-height: 1.15;
-    }
-    .logo-text strong {
+
+    .logo strong {
+      display: block;
       font-family: var(--font-display);
-      font-size: 1.25rem;
+      font-size: 1.2rem;
       color: var(--navy);
     }
-    .logo-text small {
-      font-size: 0.72rem;
-      letter-spacing: 0.06em;
-      text-transform: uppercase;
+
+    .logo small {
       color: var(--text-muted);
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      font-size: 0.7rem;
     }
 
-    .site-nav {
+    nav {
       display: flex;
-      align-items: center;
       gap: 1.5rem;
-    }
-    .site-nav a:not(.btn) {
       font-weight: 600;
-      font-size: 0.94rem;
-      color: var(--navy);
-      opacity: 0.85;
     }
-    .site-nav a:not(.btn):hover { opacity: 1; color: var(--teal); }
 
-    .nav-toggle {
-      display: none;
-      flex-direction: column;
-      gap: 5px;
-      background: none;
-      border: none;
-      cursor: pointer;
-    }
-    .nav-toggle span {
-      width: 24px;
-      height: 2px;
-      background: var(--navy);
+    nav a:hover {
+      color: var(--teal);
     }
 
     .hero {
-      position: relative;
-      padding: 4.5rem 0 0;
-      background: linear-gradient(180deg, var(--teal-light) 0%, var(--cream) 100%);
-      overflow: hidden;
+      background:
+        linear-gradient(180deg, var(--teal-light), var(--cream));
+      padding: 5rem 0;
     }
 
     .hero-grid {
       display: grid;
-      grid-template-columns: 1.05fr 0.95fr;
-      gap: 2.5rem;
+      grid-template-columns: 1fr 1fr;
+      gap: 3rem;
       align-items: center;
-      padding-bottom: 4rem;
     }
 
     .badge {
       display: inline-block;
-      background: var(--white);
-      color: var(--teal-dark);
+      background: white;
+      padding: 0.45rem 0.9rem;
+      border-radius: 999px;
       font-size: 0.78rem;
       font-weight: 700;
-      letter-spacing: 0.04em;
-      padding: 0.45rem 0.85rem;
-      border-radius: 999px;
+      color: var(--teal-dark);
       margin-bottom: 1rem;
       box-shadow: var(--shadow);
     }
 
-    .hero-copy h1 { margin-bottom: 1rem; }
-    .hero-copy .lead { margin-bottom: 1.75rem; }
-    .hero-actions { display: flex; flex-wrap: wrap; gap: 0.85rem; margin-bottom: 2rem; }
+    .hero-card {
+      background: white;
+      padding: 2rem;
+      border-radius: var(--radius);
+      box-shadow: var(--shadow);
+      border: 1px solid var(--border);
+    }
 
-    .hero-highlights {
+    .hero-card p {
+      color: var(--text-muted);
+      margin-top: 0.8rem;
+    }
+
+    .stats {
       display: grid;
       grid-template-columns: repeat(3, 1fr);
-      gap: 0.85rem;
+      gap: 1rem;
+      margin-top: 2rem;
     }
-    .hero-highlights div {
-      background: var(--white);
+
+    .stats div {
+      background: white;
       border-radius: var(--radius);
       padding: 1rem;
       text-align: center;
       box-shadow: var(--shadow);
     }
-    .hero-highlights span {
+
+    .stats span {
       display: block;
-      font-family: var(--font-display);
-      font-size: 1.15rem;
+      font-size: 1.2rem;
       font-weight: 700;
       color: var(--teal-dark);
-    }
-    .hero-highlights small { font-size: 0.75rem; color: var(--text-muted); }
-
-    .hero-visual {
-      display: grid;
-      gap: 1rem;
-    }
-    .visual-card {
-      border-radius: var(--radius);
-      padding: 1.75rem;
-      box-shadow: var(--shadow);
-    }
-    .main-card {
-      background: var(--white);
-      border: 2px solid var(--border);
-    }
-    .card-icon { font-size: 2rem; margin-bottom: 0.75rem; }
-    .main-card p { color: var(--text-muted); margin-top: 0.5rem; }
-    .accent-card {
-      background: var(--navy);
-      color: var(--white);
-    }
-    .accent-card p { font-size: 0.92rem; opacity: 0.85; margin: 0.35rem 0 0.75rem; }
-    .accent-card a { color: var(--coral); font-weight: 700; }
-
-    .hero-wave {
-      height: 56px;
-      background: var(--white);
-      clip-path: ellipse(75% 100% at 50% 100%);
     }
 
     .split {
       display: grid;
-      grid-template-columns: 0.9fr 1.1fr;
+      grid-template-columns: 1fr 1fr;
       gap: 3rem;
       align-items: center;
     }
-    .split > div > p { color: var(--text-muted); margin-bottom: 1rem; }
 
-    .about-image .image-frame {
-      aspect-ratio: 4/5;
+    .image-panel {
+      min-height: 420px;
       border-radius: var(--radius);
       background:
-        linear-gradient(160deg, rgba(42,157,143,0.15), rgba(244,162,97,0.2)),
-        linear-gradient(45deg, var(--teal-light), var(--coral-soft));
-      display: grid;
-      place-items: end start;
-      padding: 1.5rem;
+        linear-gradient(160deg, rgba(42,157,143,0.18), rgba(244,162,97,0.2));
+      display: flex;
+      align-items: end;
+      padding: 2rem;
       box-shadow: var(--shadow);
     }
-    .frame-content {
-      background: var(--white);
-      border-radius: 12px;
-      padding: 1.25rem 1.5rem;
-      max-width: 85%;
+
+    .image-box {
+      background: white;
+      border-radius: 14px;
+      padding: 1.5rem;
+      max-width: 320px;
     }
-    .frame-label {
+
+    .image-box span {
       display: block;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      color: var(--teal);
       font-size: 0.72rem;
       font-weight: 700;
-      letter-spacing: 0.1em;
-      text-transform: uppercase;
-      color: var(--teal);
-      margin-bottom: 0.35rem;
-    }
-    .frame-content p {
-      font-family: var(--font-display);
-      font-size: 1.25rem;
-      font-weight: 700;
-      color: var(--navy);
+      margin-bottom: 0.5rem;
     }
 
     .check-list li {
       position: relative;
-      padding-left: 1.6rem;
-      margin-bottom: 0.65rem;
-      color: var(--navy);
+      padding-left: 1.5rem;
+      margin-bottom: 0.7rem;
       font-weight: 500;
+      color: var(--navy);
     }
+
     .check-list li::before {
       content: "✓";
       position: absolute;
@@ -333,540 +321,584 @@
       font-weight: 700;
     }
 
-    .pillar-grid {
+    .cards {
       display: grid;
       grid-template-columns: repeat(4, 1fr);
-      gap: 1.15rem;
+      gap: 1.2rem;
+      margin-top: 2rem;
     }
-    .pillar-grid article {
-      background: var(--white);
-      border: 1px solid var(--border);
-      border-radius: var(--radius);
-      padding: 1.5rem;
-      text-align: center;
-      transition: transform 0.2s;
-    }
-    .pillar-grid article:hover { transform: translateY(-4px); }
-    .pillar-icon { font-size: 2rem; margin-bottom: 0.65rem; }
-    .pillar-grid p { font-size: 0.92rem; color: var(--text-muted); }
 
-    .room-grid {
+    .card {
+      background: white;
+      border-radius: var(--radius);
+      border: 1px solid var(--border);
+      padding: 1.6rem;
+      box-shadow: var(--shadow);
+    }
+
+    .card p {
+      color: var(--text-muted);
+      margin-top: 0.5rem;
+      font-size: 0.95rem;
+    }
+
+    .programme-grid {
       display: grid;
       grid-template-columns: repeat(3, 1fr);
-      gap: 1.15rem;
+      gap: 1.2rem;
+      margin-top: 2rem;
     }
-    .room-card {
+
+    .programme {
       background: var(--cream);
-      border: 1px solid var(--border);
       border-radius: var(--radius);
-      padding: 1.75rem;
+      padding: 1.8rem;
+      border: 1px solid var(--border);
     }
-    .room-card.featured {
-      background: var(--white);
-      border: 2px solid var(--teal);
-      box-shadow: var(--shadow);
-      transform: scale(1.02);
-    }
-    .room-age {
+
+    .programme-tag {
       display: inline-block;
+      padding: 0.3rem 0.7rem;
+      background: var(--teal-light);
+      color: var(--teal-dark);
+      border-radius: 999px;
       font-size: 0.75rem;
       font-weight: 700;
-      letter-spacing: 0.06em;
-      text-transform: uppercase;
-      color: var(--teal);
-      background: var(--teal-light);
-      padding: 0.3rem 0.65rem;
-      border-radius: 999px;
-      margin-bottom: 0.75rem;
+      margin-bottom: 1rem;
     }
-    .room-card p { color: var(--text-muted); font-size: 0.95rem; margin-bottom: 1rem; }
-    .room-card li {
-      font-size: 0.88rem;
-      padding: 0.3rem 0;
+
+    .programme ul {
+      margin-top: 1rem;
+    }
+
+    .programme li {
       padding-left: 1rem;
       position: relative;
-      color: var(--navy);
+      margin-bottom: 0.5rem;
     }
-    .room-card li::before {
+
+    .programme li::before {
       content: "•";
       position: absolute;
       left: 0;
       color: var(--coral);
     }
 
-    .parents-grid {
-      display: grid;
-      grid-template-columns: 0.85fr 1.15fr;
-      gap: 2.5rem;
-      align-items: start;
+    .family-section {
+      background: linear-gradient(135deg, var(--teal-dark), var(--teal));
+      color: rgba(255,255,255,0.9);
     }
-    .parents-grid > div > p { color: rgba(255,255,255,0.82); margin-top: 0.75rem; }
 
-    .info-cards {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 1rem;
+    .family-section h2,
+    .family-section h3 {
+      color: white;
     }
-    .info-cards article {
+
+    .info-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 1rem;
+      margin-top: 2rem;
+    }
+
+    .info-box {
       background: rgba(255,255,255,0.12);
       border: 1px solid rgba(255,255,255,0.18);
       border-radius: var(--radius);
-      padding: 1.25rem;
+      padding: 1.5rem;
     }
-    .info-cards p { font-size: 0.92rem; color: rgba(255,255,255,0.78); }
 
-    .testimonial-wrap { display: flex; justify-content: center; }
     .testimonial {
-      max-width: 42rem;
+      max-width: 760px;
+      margin: auto;
+      background: white;
+      border-radius: var(--radius);
+      padding: 2.5rem;
       text-align: center;
-      background: var(--white);
-      border: 1px solid var(--border);
-      border-radius: var(--radius);
-      padding: 2.5rem 2rem;
       box-shadow: var(--shadow);
+      border: 1px solid var(--border);
     }
+
     .testimonial p {
+      font-size: 1.3rem;
       font-family: var(--font-display);
-      font-size: 1.45rem;
-      font-weight: 600;
-      color: var(--navy);
-      line-height: 1.45;
-      margin-bottom: 1rem;
-    }
-    .testimonial footer { color: var(--text-muted); font-size: 0.9rem; }
-
-    .contact-grid {
-      display: grid;
-      grid-template-columns: 0.95fr 1.05fr;
-      gap: 2.5rem;
-      align-items: start;
-    }
-    .contact-grid > div > p { color: var(--text-muted); margin-bottom: 1.5rem; }
-
-    .contact-form {
-      background: var(--white);
-      border: 1px solid var(--border);
-      border-radius: var(--radius);
-      padding: 2rem;
-      display: grid;
-      gap: 0.95rem;
-      box-shadow: var(--shadow);
-    }
-    .contact-form label {
-      display: grid;
-      gap: 0.35rem;
-      font-weight: 600;
-      font-size: 0.88rem;
       color: var(--navy);
     }
-    .contact-form input,
-    .contact-form select,
-    .contact-form textarea {
-      font: inherit;
-      padding: 0.72rem 0.85rem;
-      border: 1px solid var(--border);
-      border-radius: 0.65rem;
-      background: var(--cream);
-    }
-    .contact-form input:focus,
-    .contact-form select:focus,
-    .contact-form textarea:focus {
-      outline: 2px solid rgba(42,157,143,0.35);
-      border-color: var(--teal);
-    }
-    .form-note { font-size: 0.78rem; color: var(--text-muted); text-align: center; }
 
-    .site-footer {
+    .testimonial footer {
+      margin-top: 1rem;
+      color: var(--text-muted);
+    }
+
+    footer.site-footer {
       background: var(--navy);
       color: rgba(255,255,255,0.75);
-      padding: 3rem 0 0;
+      padding: 4rem 0 2rem;
     }
+
     .footer-grid {
       display: grid;
-      grid-template-columns: 1.4fr repeat(3, 1fr);
+      grid-template-columns: 1.5fr 1fr 1fr;
       gap: 2rem;
-      padding-bottom: 2rem;
     }
-    .logo-footer .logo-text strong { color: var(--white); }
-    .logo-footer .logo-text small { color: rgba(255,255,255,0.5); }
-    .footer-tagline { margin-top: 0.85rem; font-size: 0.92rem; }
-    .site-footer h4 {
-      color: var(--white);
-      font-family: var(--font-display);
-      font-size: 0.95rem;
-      margin-bottom: 0.75rem;
+
+    .footer-grid h4 {
+      color: white;
+      margin-bottom: 1rem;
     }
-    .site-footer li { margin-bottom: 0.4rem; font-size: 0.92rem; }
-    .site-footer a:hover { color: var(--coral); }
-    .footer-bottom {
+
+    .footer-grid li {
+      margin-bottom: 0.6rem;
+    }
+
+    .copyright {
+      margin-top: 2rem;
+      padding-top: 1.5rem;
       border-top: 1px solid rgba(255,255,255,0.12);
-      padding: 1.1rem 0 1.5rem;
-      font-size: 0.82rem;
+      font-size: 0.85rem;
     }
 
     @media (max-width: 980px) {
-      .hero-grid, .split, .contact-grid, .parents-grid { grid-template-columns: 1fr; }
-      .pillar-grid, .room-grid { grid-template-columns: repeat(2, 1fr); }
-      .room-card.featured { transform: none; }
-      .footer-grid { grid-template-columns: 1fr 1fr; }
-    }
-
-    @media (max-width: 720px) {
-      .nav-toggle { display: flex; }
-      .site-nav {
-        position: fixed;
-        inset: 4.75rem 0 auto 0;
-        background: var(--white);
-        flex-direction: column;
-        align-items: stretch;
-        padding: 1.25rem;
-        border-bottom: 1px solid var(--border);
-        transform: translateY(-120%);
-        opacity: 0;
-        pointer-events: none;
-        transition: 0.25s;
-      }
-      .site-nav.open {
-        transform: translateY(0);
-        opacity: 1;
-        pointer-events: auto;
-      }
-      .hero-highlights, .pillar-grid, .room-grid, .info-cards, .footer-grid {
+      .hero-grid,
+      .split,
+      .cards,
+      .programme-grid,
+      .info-grid,
+      .footer-grid {
         grid-template-columns: 1fr;
+      }
+
+      .stats {
+        grid-template-columns: 1fr;
+      }
+
+      nav {
+        display: none;
       }
     }
   </style>
 </head>
+
 <body>
-  <header class="site-header" id="top">
-    <div class="container header-inner">
-      <a class="logo" href="#top">
-        <span class="logo-icon" aria-hidden="true">◆</span>
-        <span class="logo-text">
-          <strong>Epic Kids</strong>
-          <small>Professional Services</small>
-        </span>
-      </a>
-      <button class="nav-toggle" aria-label="Open menu" aria-expanded="false">
-        <span></span><span></span><span></span>
-      </button>
-      <nav class="site-nav">
-        <a href="#about">About</a>
-        <a href="#services">Services</a>
-        <a href="#sectors">Sectors</a>
-        <a href="#clients">Clients</a>
-        <a href="#contact" class="btn btn-nav">Get in Touch</a>
-      </nav>
-    </div>
-  </header>
 
-  <main>
-    <section class="hero">
-      <div class="container hero-grid">
-        <div class="hero-copy">
-          <p class="badge">Trusted Partner • Quality Assured</p>
-          <h1>Delivering excellence and value for every client</h1>
-          <p class="lead">Epic Kids provides professional services with expertise, reliability and a commitment to your success — because strong partnerships drive lasting results.</p>
-          <div class="hero-actions">
-            <a href="#contact" class="btn btn-primary">Request a consultation</a>
-            <a href="#services" class="btn btn-secondary">View our services</a>
-          </div>
-          <div class="hero-highlights">
-            <div><span>10+</span><small>Years experience</small></div>
-            <div><span>500+</span><small>Projects delivered</small></div>
-            <div><span>24/7</span><small>Support available</small></div>
-          </div>
-        </div>
-        <div class="hero-visual">
-          <div class="visual-card main-card">
-            <div class="card-icon">📈</div>
-            <h2>Driving growth through expertise</h2>
-            <p>Strategic solutions, dedicated support and proven methodologies in a professional environment.</p>
-          </div>
-          <div class="visual-card accent-card">
-            <strong>Ready to get started</strong>
-            <p>Let's discuss how we can help you achieve your goals.</p>
-            <a href="#contact">Contact us today →</a>
-          </div>
-        </div>
+<header>
+  <div class="container header-inner">
+
+    <a href="#" class="logo">
+      <div class="logo-icon">◆</div>
+
+      <div>
+        <strong>Epic Kids Ltd</strong>
+        <small>Professional Childcare Services</small>
       </div>
-      <div class="hero-wave" aria-hidden="true"></div>
-    </section>
+    </a>
 
-    <section class="section" id="about">
-      <div class="container split">
-        <div class="about-image">
-          <div class="image-frame">
-            <div class="frame-content">
-              <span class="frame-label">Our commitment</span>
-              <p>Excellence. Integrity. Results.</p>
-            </div>
+    <nav>
+      <a href="#about">About</a>
+      <a href="#services">Services</a>
+      <a href="#programmes">Programmes</a>
+      <a href="#families">Families</a>
+    </nav>
+
+  </div>
+</header>
+
+<main>
+
+  <section class="hero">
+    <div class="container hero-grid">
+
+      <div>
+
+        <p class="badge">
+          Trusted Childcare • Safe & Supportive Environment
+        </p>
+
+        <h1>
+          Quality childcare focused on learning, safety and development
+        </h1>
+
+        <p class="lead">
+          Epic Kids Ltd provides professional childcare services in a safe,
+          caring and engaging environment where children can learn,
+          grow and build confidence every day.
+        </p>
+
+        <div class="btn-group">
+          <a href="#about" class="btn btn-primary">Learn More</a>
+          <a href="#services" class="btn btn-secondary">Our Programmes</a>
+        </div>
+
+        <div class="stats">
+          <div>
+            <span>10+</span>
+            Years Supporting Families
+          </div>
+
+          <div>
+            <span>Qualified</span>
+            Experienced Childcare Staff
+          </div>
+
+          <div>
+            <span>Safe</span>
+            Structured Learning Environment
           </div>
         </div>
-        <div>
-          <p class="eyebrow">About Epic Kids</p>
-          <h2>Professional services built on trust and expertise</h2>
-          <p>Epic Kids was established to deliver exceptional service and value to clients across industries — where quality, consistency and partnership drive every engagement.</p>
-          <p>Our experienced professionals bring deep expertise and a collaborative approach, combining strategic insight with practical execution to help you achieve your objectives.</p>
-          <ul class="check-list">
-            <li>Qualified, experienced consultants and specialists</li>
-            <li>Proven methodologies and industry best practices</li>
-            <li>Tailored solutions aligned with your goals</li>
-            <li>Ongoing support and transparent communication</li>
+
+      </div>
+
+      <div class="hero-card">
+
+        <h2>
+          Supporting children through care and learning
+        </h2>
+
+        <p>
+          We combine professional childcare with structured activities
+          that encourage creativity, social development and confidence.
+        </p>
+
+      </div>
+
+    </div>
+  </section>
+
+  <section class="section" id="about">
+
+    <div class="container split">
+
+      <div class="image-panel">
+
+        <div class="image-box">
+          <span>Our Commitment</span>
+
+          <h3>
+            Safe. Caring. Supportive.
+          </h3>
+        </div>
+
+      </div>
+
+      <div>
+
+        <p class="eyebrow">About Epic Kids Ltd</p>
+
+        <h2>
+          Professional childcare built on trust, safety and care
+        </h2>
+
+        <p>
+          Epic Kids Ltd is dedicated to providing dependable childcare
+          services for families in a welcoming and supportive environment.
+        </p>
+
+        <br />
+
+        <p>
+          Our experienced team focuses on creating positive daily experiences
+          that support children’s emotional, social and educational development.
+        </p>
+
+        <br />
+
+        <ul class="check-list">
+          <li>Qualified and caring childcare professionals</li>
+          <li>Safe, clean and structured environment</li>
+          <li>Age-appropriate learning and activities</li>
+          <li>Strong communication with parents and guardians</li>
+        </ul>
+
+      </div>
+
+    </div>
+
+  </section>
+
+  <section class="section" id="services">
+
+    <div class="container">
+
+      <p class="eyebrow">What We Offer</p>
+
+      <h2>
+        Childcare programmes designed for learning and development
+      </h2>
+
+      <p class="lead">
+        Our programmes encourage creativity, confidence,
+        communication and positive social interaction through
+        structured daily activities.
+      </p>
+
+      <div class="cards">
+
+        <div class="card">
+          <h3>Early Learning Activities</h3>
+
+          <p>
+            Interactive activities supporting communication,
+            creativity and educational development.
+          </p>
+        </div>
+
+        <div class="card">
+          <h3>Daily Childcare Support</h3>
+
+          <p>
+            Professional supervision and care in a safe
+            and welcoming environment.
+          </p>
+        </div>
+
+        <div class="card">
+          <h3>Social Development</h3>
+
+          <p>
+            Guided activities helping children build
+            confidence and friendships.
+          </p>
+        </div>
+
+        <div class="card">
+          <h3>Healthy Routine & Wellbeing</h3>
+
+          <p>
+            Structured schedules promoting wellbeing,
+            consistency and positive habits.
+          </p>
+        </div>
+
+      </div>
+
+    </div>
+
+  </section>
+
+  <section class="section" id="programmes">
+
+    <div class="container">
+
+      <p class="eyebrow">Programmes</p>
+
+      <h2>
+        Programmes tailored for different stages of development
+      </h2>
+
+      <div class="programme-grid">
+
+        <div class="programme">
+
+          <span class="programme-tag">Toddlers</span>
+
+          <h3>Early Development Programme</h3>
+
+          <p>
+            Supportive activities designed to encourage curiosity,
+            confidence and communication skills.
+          </p>
+
+          <ul>
+            <li>Creative play</li>
+            <li>Structured routines</li>
+            <li>Social interaction</li>
           </ul>
-        </div>
-      </div>
-    </section>
 
-    <section class="section section-soft" id="services">
-      <div class="container">
-        <div class="section-head center">
-          <p class="eyebrow">What we offer</p>
-          <h2>Comprehensive services tailored to your needs</h2>
-          <p>We combine expertise with flexibility — delivering solutions that address your challenges while supporting your long-term objectives.</p>
         </div>
-        <div class="pillar-grid">
-          <article>
-            <div class="pillar-icon">📊</div>
-            <h3>Strategic Consulting</h3>
-            <p>Data-driven insights and strategic planning to guide your business decisions and growth.</p>
-          </article>
-          <article>
-            <div class="pillar-icon">⚙️</div>
-            <h3>Operations & Process</h3>
-            <p>Streamlined workflows, efficiency improvements and scalable systems for sustainable success.</p>
-          </article>
-          <article>
-            <div class="pillar-icon">🤝</div>
-            <h3>Client Partnership</h3>
-            <p>Collaborative engagement, dedicated account management and responsive support throughout.</p>
-          </article>
-          <article>
-            <div class="pillar-icon">🚀</div>
-            <h3>Growth & Innovation</h3>
-            <p>New market opportunities, digital transformation and innovation frameworks to stay ahead.</p>
-          </article>
+
+        <div class="programme">
+
+          <span class="programme-tag">Pre-School</span>
+
+          <h3>Learning & Discovery Programme</h3>
+
+          <p>
+            Engaging educational activities helping children
+            develop independence and foundational learning skills.
+          </p>
+
+          <ul>
+            <li>Early literacy activities</li>
+            <li>Group learning</li>
+            <li>Creative projects</li>
+          </ul>
+
         </div>
-      </div>
-    </section>
 
-    <section class="section" id="sectors">
-      <div class="container">
-        <div class="section-head">
-          <p class="eyebrow">Industries we serve</p>
-          <h2>Sector expertise that delivers results</h2>
+        <div class="programme">
+
+          <span class="programme-tag">After School</span>
+
+          <h3>Extended Care Programme</h3>
+
+          <p>
+            Safe and supportive after-school care with
+            supervised activities and relaxation time.
+          </p>
+
+          <ul>
+            <li>Homework support</li>
+            <li>Recreational activities</li>
+            <li>Supervised care</li>
+          </ul>
+
         </div>
-        <div class="room-grid">
-          <article class="room-card">
-            <span class="room-age">Enterprise</span>
-            <h3>Corporate & Finance</h3>
-            <p>Strategic advisory, process optimisation and transformation programmes for large organisations.</p>
-            <ul>
-              <li>Change management</li>
-              <li>Risk & compliance</li>
-              <li>Digital transformation</li>
-            </ul>
-          </article>
-          <article class="room-card featured">
-            <span class="room-age">SME</span>
-            <h3>Small & Medium Business</h3>
-            <p>Practical support for growing businesses — from strategy to operations and market expansion.</p>
-            <ul>
-              <li>Business planning</li>
-              <li>Operational efficiency</li>
-              <li>Growth strategies</li>
-            </ul>
-          </article>
-          <article class="room-card">
-            <span class="room-age">Public</span>
-            <h3>Public Sector</h3>
-            <p>Evidence-based solutions for government, healthcare and education organisations.</p>
-            <ul>
-              <li>Service improvement</li>
-              <li>Policy implementation</li>
-              <li>Stakeholder engagement</li>
-            </ul>
-          </article>
-        </div>
-      </div>
-    </section>
 
-    <section class="section section-teal" id="clients">
-      <div class="container parents-grid">
-        <div>
-          <p class="eyebrow eyebrow-light">Why choose us</p>
-          <h2>A partnership built on trust and results</h2>
-          <p>Selecting the right partner is a critical business decision. We make it straightforward with transparent processes, experienced professionals and a track record of delivery.</p>
-        </div>
-        <div class="info-cards">
-          <article>
-            <h3>Proven Track Record</h3>
-            <p>Years of successful engagements across multiple industries with measurable outcomes.</p>
-          </article>
-          <article>
-            <h3>Tailored Approach</h3>
-            <p>Solutions designed around your specific challenges, goals and organisational context.</p>
-          </article>
-          <article>
-            <h3>Dedicated Support</h3>
-            <p>Responsive account management and ongoing assistance throughout our engagement.</p>
-          </article>
-          <article>
-            <h3>Flexible Terms</h3>
-            <p>Engagement models that adapt to your budget, timeline and resource requirements.</p>
-          </article>
-        </div>
       </div>
-    </section>
 
-    <section class="section">
-      <div class="container testimonial-wrap">
-        <blockquote class="testimonial">
-          <p>"The team delivered exceptional results on our transformation programme. Their expertise and collaborative approach made all the difference."</p>
-          <footer>— Director, Corporate Client</footer>
-        </blockquote>
-      </div>
-    </section>
-
-    <section class="section section-soft" id="contact">
-      <div class="container contact-grid">
-        <div>
-          <p class="eyebrow">Get in touch</p>
-          <h2>Request a consultation or ask about our services</h2>
-          <p>We welcome enquiries from businesses and individuals looking for professional support. Consultations are available on weekdays.</p>
-          <p style="margin-top: 1.5rem; color: #6b7280;">Fill out the form and our team will respond within 24 hours.</p>
-        </div>
-        
-        <form class="contact-form" action="https://api.web3forms.com/submit" method="POST">
-          <input type="hidden" name="access_key" value="c5dd83d6-cc98-4014-b854-9bd9bd6db31f">
-
-          <label>
-            Full name
-            <input type="text" name="name" required autocomplete="name">
-          </label>
-          <label>
-            Company / Organisation
-            <input type="text" name="company" autocomplete="organization">
-          </label>
-          <label>
-            Email
-            <input type="email" name="email" required autocomplete="email">
-          </label>
-          <label>
-            Service interest
-            <select name="service" required>
-              <option value="">Select a service</option>
-              <option value="Strategic Consulting">Strategic Consulting</option>
-              <option value="Operations & Process">Operations & Process</option>
-              <option value="Client Partnership">Client Partnership</option>
-              <option value="Growth & Innovation">Growth & Innovation</option>
-              <option value="Other">Other</option>
-            </select>
-          </label>
-          <label>
-            Message
-            <textarea name="message" rows="4" placeholder="Tell us about your requirements…" required></textarea>
-          </label>
-          
-          <input type="hidden" name="_subject" value="New Service Enquiry!">
-
-          <button type="submit" class="btn btn-primary btn-full">Send enquiry</button>
-          <p class="form-note">We aim to respond within 24 hours on working days.</p>
-        </form>
-      </div>
-    </section>
-  </main>
-
-  <footer class="site-footer">
-    <div class="container footer-grid">
-      <div>
-        <a class="logo logo-footer" href="#top">
-          <span class="logo-icon">◆</span>
-          <span class="logo-text">
-            <strong>Epic Kids</strong>
-            <small>Professional Services</small>
-          </span>
-        </a>
-        <p class="footer-tagline">Delivering excellence and value for every client.</p>
-      </div>
-      <div>
-        <h4>Explore</h4>
-        <ul>
-          <li><a href="#about">About</a></li>
-          <li><a href="#services">Services</a></li>
-          <li><a href="#sectors">Sectors</a></li>
-          <li><a href="#clients">Clients</a></li>
-        </ul>
-      </div>
-      <div>
-        <h4>Information</h4>
-        <ul>
-          <li><a href="#">Privacy Policy</a></li>
-          <li><a href="#">Terms of Service</a></li>
-          <li><a href="#">Cookie Policy</a></li>
-        </ul>
-      </div>
-      <div>
-        <h4>Contact</h4>
-        <ul>
-          <li><a href="mailto:info@epickids.com">info@epickids.com</a></li>
-        </ul>
-      </div>
     </div>
-    <div class="container footer-bottom">
-      <p>&copy; <span id="year"></span> Epic Kids Ltd. All rights reserved.</p>
+
+  </section>
+
+  <section class="section family-section" id="families">
+
+    <div class="container">
+
+      <p class="eyebrow" style="color:white;">
+        For Families
+      </p>
+
+      <h2>
+        Supporting parents with reliable childcare services
+      </h2>
+
+      <p class="lead" style="color:rgba(255,255,255,0.85);">
+        We understand the importance of trust, communication and consistency
+        when choosing childcare services for your family.
+      </p>
+
+      <div class="info-grid">
+
+        <div class="info-box">
+          <h3>Safe Environment</h3>
+
+          <p>
+            A secure and professionally managed childcare setting
+            focused on wellbeing and supervision.
+          </p>
+        </div>
+
+        <div class="info-box">
+          <h3>Experienced Team</h3>
+
+          <p>
+            Dedicated childcare professionals committed
+            to providing quality care and support.
+          </p>
+        </div>
+
+        <div class="info-box">
+          <h3>Structured Activities</h3>
+
+          <p>
+            Balanced programmes combining learning,
+            creativity and recreation.
+          </p>
+        </div>
+
+        <div class="info-box">
+          <h3>Parent Communication</h3>
+
+          <p>
+            Ongoing communication with families regarding
+            daily activities and progress.
+          </p>
+        </div>
+
+      </div>
+
     </div>
-  </footer>
 
-  <script>
-    document.getElementById("year").textContent = new Date().getFullYear();
+  </section>
 
-    const toggle = document.querySelector(".nav-toggle");
-    const nav = document.querySelector(".site-nav");
+  <section class="section">
 
-    toggle?.addEventListener("click", () => {
-      const open = nav.classList.toggle("open");
-      toggle.setAttribute("aria-expanded", open);
-    });
+    <div class="container">
 
-    nav?.querySelectorAll("a").forEach((link) => {
-      link.addEventListener("click", () => {
-        nav.classList.remove("open");
-        toggle?.setAttribute("aria-expanded", "false");
-      });
-    });
+      <div class="testimonial">
 
-    document.querySelector(".contact-form")?.addEventListener("submit", function(e) {
-      e.preventDefault();
-      const form = this;
-      const btn = form.querySelector('button[type="submit"]');
-      
-      btn.textContent = "Sending...";
-      btn.disabled = true;
+        <p>
+          “Epic Kids Ltd has provided a caring, professional and supportive
+          environment that our family truly appreciates.”
+        </p>
 
-      const formData = new FormData(form);
+        <footer>
+          Parent Feedback
+        </footer>
 
-      fetch(form.action, {
-        method: form.method,
-        body: formData,
-        headers: {
-            'Accept': 'application/json'
-        }
-      })
-      .then(response => {
-        if (response.ok) {
-          btn.textContent = "Thank you — we'll be in touch soon!";
-          form.reset();
-        } else {
-          btn.textContent = "Oops! Error sending.";
-          btn.disabled = false;
-        }
-      })
-      .catch(error => {
-        btn.textContent = "Oops! Error sending.";
-        btn.disabled = false;
-      });
-    });
-  </script>
+      </div>
+
+    </div>
+
+  </section>
+
+</main>
+
+<footer class="site-footer">
+
+  <div class="container">
+
+    <div class="footer-grid">
+
+      <div>
+
+        <div class="logo">
+
+          <div class="logo-icon">◆</div>
+
+          <div>
+            <strong style="color:white;">
+              Epic Kids Ltd
+            </strong>
+
+            <small>
+              Professional Childcare Services
+            </small>
+          </div>
+
+        </div>
+
+        <p style="margin-top:1rem;">
+          Providing trusted childcare services in a safe,
+          supportive and engaging environment.
+        </p>
+
+      </div>
+
+      <div>
+
+        <h4>Programmes</h4>
+
+        <ul>
+          <li>Early Development</li>
+          <li>Pre-School Learning</li>
+          <li>After School Care</li>
+        </ul>
+
+      </div>
+
+      <div>
+
+        <h4>Company</h4>
+
+        <ul>
+          <li>About Us</li>
+          <li>Our Services</li>
+          <li>Family Support</li>
+        </ul>
+
+      </div>
+
+    </div>
+
+    <div class="copyright">
+      © 2026 Epic Kids Ltd. All rights reserved.
+    </div>
+
+  </div>
+
+</footer>
+
 </body>
 </html>
+```
