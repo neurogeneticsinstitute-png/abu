@@ -1,4 +1,3 @@
-```html
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -26,6 +25,7 @@
       --teal-dark:#1f756a;
       --teal-light:#e8f6f3;
       --coral:#f4a261;
+      --coral-dark:#e78e47;
       --navy:#264653;
       --cream:#fffbf7;
       --white:#ffffff;
@@ -133,22 +133,32 @@
       padding:1rem 1.6rem;
       border-radius:999px;
       font-weight:700;
-      transition:.2s ease;
+      transition:all .2s ease;
     }
 
     .btn:hover{
       transform:translateY(-2px);
+      box-shadow: 0 4px 12px rgba(38,70,83,.15);
     }
 
     .btn-primary{
       background:var(--coral);
       color:var(--navy);
     }
+    
+    .btn-primary:hover {
+      background: var(--coral-dark);
+    }
 
     .btn-secondary{
       border:2px solid var(--teal-light);
       background:white;
       color:var(--teal-dark);
+    }
+    
+    .btn-secondary:hover {
+      border-color: var(--teal);
+      background: var(--teal-light);
     }
 
     header{
@@ -171,6 +181,7 @@
       display:flex;
       align-items:center;
       gap:.9rem;
+      z-index: 1001;
     }
 
     .logo-badge{
@@ -205,8 +216,45 @@
       font-weight:600;
     }
 
+    nav a{
+      transition: color .2s ease;
+    }
+
     nav a:hover{
       color:var(--teal);
+    }
+
+    /* Hamburger Toggle Button */
+    .menu-toggle {
+      display: none;
+      flex-direction: column;
+      justify-content: space-between;
+      width: 30px;
+      height: 21px;
+      background: transparent;
+      border: none;
+      cursor: pointer;
+      padding: 0;
+      z-index: 1001;
+    }
+
+    .menu-toggle span {
+      width: 100%;
+      height: 3px;
+      background-color: var(--navy);
+      border-radius: 999px;
+      transition: all 0.3s ease;
+    }
+
+    /* Open state transformations for hamburger icon */
+    .menu-toggle.active span:nth-child(1) {
+      transform: translateY(9px) rotate(45deg);
+    }
+    .menu-toggle.active span:nth-child(2) {
+      opacity: 0;
+    }
+    .menu-toggle.active span:nth-child(3) {
+      transform: translateY(-9px) rotate(-45deg);
     }
 
     .hero{
@@ -238,7 +286,7 @@
 
     .stats{
       display:grid;
-      grid-template-columns:repeat(3,1fr);
+      grid-template-columns:repeat(auto-fit, minmax(160px, 1fr));
       gap:1rem;
       margin-top:2.5rem;
     }
@@ -339,7 +387,7 @@
 
     .cards{
       display:grid;
-      grid-template-columns:repeat(4,1fr);
+      grid-template-columns:repeat(auto-fit, minmax(240px, 1fr));
       gap:1.2rem;
       margin-top:3rem;
     }
@@ -375,7 +423,7 @@
 
     .programmes{
       display:grid;
-      grid-template-columns:repeat(3,1fr);
+      grid-template-columns:repeat(auto-fit, minmax(280px, 1fr));
       gap:1.3rem;
       margin-top:3rem;
     }
@@ -432,7 +480,7 @@
 
     .family-grid{
       display:grid;
-      grid-template-columns:repeat(2,1fr);
+      grid-template-columns:repeat(auto-fit, minmax(240px, 1fr));
       gap:1rem;
       margin-top:3rem;
     }
@@ -499,6 +547,7 @@
       border-radius:14px;
       font:inherit;
       background:var(--cream);
+      transition: all .2s ease;
     }
 
     .contact-box textarea{
@@ -510,6 +559,8 @@
     .contact-box textarea:focus{
       outline:none;
       border-color:var(--teal);
+      background-color: var(--white);
+      box-shadow: 0 0 0 4px rgba(42,157,143,.15);
     }
 
     .contact-box button{
@@ -552,28 +603,41 @@
     }
 
     @media(max-width:980px){
-
       .hero-grid,
       .split,
-      .cards,
-      .programmes,
-      .family-grid,
       .footer-grid{
         grid-template-columns:1fr;
       }
 
-      .stats{
-        grid-template-columns:1fr;
+      .menu-toggle {
+        display: flex;
       }
 
       nav{
-        display:none;
+        position: fixed;
+        top: 0;
+        right: -100%;
+        width: 80%;
+        max-width: 400px;
+        height: 100vh;
+        background: var(--white);
+        box-shadow: -10px 0 30px rgba(0,0,0,0.05);
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        gap: 2.5rem;
+        font-size: 1.25rem;
+        transition: right 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+        z-index: 1000;
+      }
+
+      nav.active {
+        right: 0;
       }
 
       .hero{
         padding-top:5rem;
       }
-
     }
   </style>
 </head>
@@ -584,19 +648,21 @@
   <div class="container header-inner">
 
     <a href="#" class="logo">
-
-      <div class="logo-badge">
-        ◆
-      </div>
-
+      <div class="logo-badge">◆</div>
       <div>
         <strong>Epic Kids Ltd</strong>
         <small>Professional Childcare Services</small>
       </div>
-
     </a>
 
-    <nav>
+    <!-- Hamburger Toggle Button for Responsive Navigation -->
+    <button class="menu-toggle" aria-label="Toggle Navigation menu" id="hamburger">
+      <span></span>
+      <span></span>
+      <span></span>
+    </button>
+
+    <nav id="nav-menu">
       <a href="#about">About</a>
       <a href="#services">Services</a>
       <a href="#programmes">Programmes</a>
@@ -610,11 +676,8 @@
 <main>
 
   <section class="hero">
-
     <div class="container hero-grid">
-
       <div>
-
         <p class="badge">
           Trusted Childcare • Safe & Supportive Environment
         </p>
@@ -630,150 +693,84 @@
         </p>
 
         <div class="btn-group">
-          <a href="#about" class="btn btn-primary">
-            Learn More
-          </a>
-
-          <a href="#contact" class="btn btn-secondary">
-            Contact Us
-          </a>
+          <a href="#about" class="btn btn-primary">Learn More</a>
+          <a href="#contact" class="btn btn-secondary">Contact Us</a>
         </div>
 
         <div class="stats">
-
           <div>
             <span>10+</span>
             Years Supporting Families
           </div>
-
           <div>
             <span>Qualified</span>
             Experienced Childcare Team
           </div>
-
           <div>
             <span>Safe</span>
             Structured Learning Environment
           </div>
-
         </div>
-
       </div>
 
       <div class="hero-card">
-
-        <h2>
-          Supporting children through care and learning
-        </h2>
-
+        <h2>Supporting children through care and learning</h2>
         <p>
           We combine professional childcare with structured activities
           that encourage creativity, social development, independence
           and confidence.
         </p>
-
         <div class="mini-box">
-
-          <strong>
-            Enrolment Information Available
-          </strong>
-
+          <strong>Enrolment Information Available</strong>
           <p style="margin-top:.5rem;">
             Contact our team to learn more about our childcare
             programmes and daily activities.
           </p>
-
         </div>
-
       </div>
-
     </div>
-
   </section>
 
   <section class="section" id="about">
-
     <div class="container split">
-
       <div class="visual">
-
         <div class="visual-card">
-
           <span>Our Commitment</span>
-
-          <h3>
-            Safe. Caring. Supportive.
-          </h3>
-
+          <h3>Safe. Caring. Supportive.</h3>
           <p style="margin-top:.6rem;">
             Creating positive daily experiences for children
             and families through trusted childcare services.
           </p>
-
         </div>
-
       </div>
 
       <div>
-
-        <p class="eyebrow">
-          About Epic Kids Ltd
-        </p>
-
-        <h2>
-          Professional childcare built on trust, safety and care
-        </h2>
-
+        <p class="eyebrow">About Epic Kids Ltd</p>
+        <h2>Professional childcare built on trust, safety and care</h2>
         <p>
           Epic Kids Ltd is dedicated to providing dependable childcare
           services for families in a welcoming and supportive environment.
         </p>
-
         <br>
-
         <p>
           Our experienced team focuses on creating positive daily experiences
           that support children’s emotional, social and educational development.
         </p>
 
         <ul class="check-list">
-
-          <li>
-            Qualified and caring childcare professionals
-          </li>
-
-          <li>
-            Safe, clean and structured environment
-          </li>
-
-          <li>
-            Age-appropriate learning and activities
-          </li>
-
-          <li>
-            Strong communication with parents and guardians
-          </li>
-
+          <li>Qualified and caring childcare professionals</li>
+          <li>Safe, clean and structured environment</li>
+          <li>Age-appropriate learning and activities</li>
+          <li>Strong communication with parents and guardians</li>
         </ul>
-
       </div>
-
     </div>
-
   </section>
 
   <section class="section section-soft" id="services">
-
     <div class="container">
-
-      <p class="eyebrow">
-        What We Offer
-      </p>
-
-      <h2>
-        Childcare programmes designed for learning and development
-      </h2>
-
+      <p class="eyebrow">What We Offer</p>
+      <h2>Childcare programmes designed for learning and development</h2>
       <p class="lead">
         Our programmes encourage creativity, confidence,
         communication and positive social interaction through
@@ -781,400 +778,198 @@
       </p>
 
       <div class="cards">
-
         <div class="card">
-
-          <div class="card-icon">
-            🎨
-          </div>
-
-          <h3>
-            Early Learning Activities
-          </h3>
-
-          <p>
-            Interactive activities supporting communication,
-            creativity and educational development.
-          </p>
-
+          <div class="card-icon">🎨</div>
+          <h3>Early Learning Activities</h3>
+          <p>Interactive activities supporting communication, creativity and educational development.</p>
         </div>
-
         <div class="card">
-
-          <div class="card-icon">
-            🧸
-          </div>
-
-          <h3>
-            Daily Childcare Support
-          </h3>
-
-          <p>
-            Professional supervision and care in a safe
-            and welcoming environment.
-          </p>
-
+          <div class="card-icon">🧸</div>
+          <h3>Daily Childcare Support</h3>
+          <p>Professional supervision and care in a safe and welcoming environment.</p>
         </div>
-
         <div class="card">
-
-          <div class="card-icon">
-            🤝
-          </div>
-
-          <h3>
-            Social Development
-          </h3>
-
-          <p>
-            Guided activities helping children build
-            confidence and friendships.
-          </p>
-
+          <div class="card-icon">🤝</div>
+          <h3>Social Development</h3>
+          <p>Guided activities helping children build confidence and friendships.</p>
         </div>
-
         <div class="card">
-
-          <div class="card-icon">
-            🌱
-          </div>
-
-          <h3>
-            Healthy Routine & Wellbeing
-          </h3>
-
-          <p>
-            Structured schedules promoting wellbeing,
-            consistency and positive habits.
-          </p>
-
+          <div class="card-icon">🌱</div>
+          <h3>Healthy Routine & Wellbeing</h3>
+          <p>Structured schedules promoting wellbeing, consistency and positive habits.</p>
         </div>
-
       </div>
-
     </div>
-
   </section>
 
   <section class="section" id="programmes">
-
     <div class="container">
-
-      <p class="eyebrow">
-        Programmes
-      </p>
-
-      <h2>
-        Programmes tailored for different stages of development
-      </h2>
+      <p class="eyebrow">Programmes</p>
+      <h2>Programmes tailored for different stages of development</h2>
 
       <div class="programmes">
-
         <div class="programme">
-
-          <span class="programme-tag">
-            Toddlers
-          </span>
-
-          <h3>
-            Early Development Programme
-          </h3>
-
-          <p>
-            Supportive activities designed to encourage curiosity,
-            confidence and communication skills.
-          </p>
-
+          <span class="programme-tag">Toddlers</span>
+          <h3>Early Development Programme</h3>
+          <p>Supportive activities designed to encourage curiosity, confidence and communication skills.</p>
           <ul>
             <li>Creative play</li>
             <li>Structured routines</li>
             <li>Social interaction</li>
           </ul>
-
         </div>
 
         <div class="programme">
-
-          <span class="programme-tag">
-            Pre-School
-          </span>
-
-          <h3>
-            Learning & Discovery Programme
-          </h3>
-
-          <p>
-            Engaging educational activities helping children
-            develop independence and foundational learning skills.
-          </p>
-
+          <span class="programme-tag">Pre-School</span>
+          <h3>Learning & Discovery Programme</h3>
+          <p>Engaging educational activities helping children develop independence and foundational learning skills.</p>
           <ul>
             <li>Early literacy activities</li>
             <li>Group learning</li>
             <li>Creative projects</li>
           </ul>
-
         </div>
 
         <div class="programme">
-
-          <span class="programme-tag">
-            After School
-          </span>
-
-          <h3>
-            Extended Care Programme
-          </h3>
-
-          <p>
-            Safe and supportive after-school care with
-            supervised activities and relaxation time.
-          </p>
-
+          <span class="programme-tag">After School</span>
+          <h3>Extended Care Programme</h3>
+          <p>Safe and supportive after-school care with supervised activities and relaxation time.</p>
           <ul>
             <li>Homework support</li>
             <li>Recreational activities</li>
             <li>Supervised care</li>
           </ul>
-
         </div>
-
       </div>
-
     </div>
-
   </section>
 
   <section class="section family" id="families">
-
     <div class="container">
-
-      <p class="eyebrow" style="color:white;">
-        For Families
-      </p>
-
-      <h2>
-        Supporting parents with reliable childcare services
-      </h2>
-
+      <p class="eyebrow" style="color:white;">For Families</p>
+      <h2>Supporting parents with reliable childcare services</h2>
       <p class="lead">
         We understand the importance of trust, communication and consistency
         when choosing childcare services for your family.
       </p>
 
       <div class="family-grid">
-
         <div class="family-card">
-
-          <h3>
-            Safe Environment
-          </h3>
-
-          <p>
-            A secure and professionally managed childcare setting
-            focused on wellbeing and supervision.
-          </p>
-
+          <h3>Safe Environment</h3>
+          <p>A secure and professionally managed childcare setting focused on wellbeing and supervision.</p>
         </div>
-
         <div class="family-card">
-
-          <h3>
-            Experienced Team
-          </h3>
-
-          <p>
-            Dedicated childcare professionals committed
-            to providing quality care and support.
-          </p>
-
+          <h3>Experienced Team</h3>
+          <p>Dedicated childcare professionals committed to providing quality care and support.</p>
         </div>
-
         <div class="family-card">
-
-          <h3>
-            Structured Activities
-          </h3>
-
-          <p>
-            Balanced programmes combining learning,
-            creativity and recreation.
-          </p>
-
+          <h3>Structured Activities</h3>
+          <p>Balanced programmes combining learning, creativity and recreation.</p>
         </div>
-
         <div class="family-card">
-
-          <h3>
-            Parent Communication
-          </h3>
-
-          <p>
-            Ongoing communication with families regarding
-            daily activities and progress.
-          </p>
-
+          <h3>Parent Communication</h3>
+          <p>Ongoing communication with families regarding daily activities and progress.</p>
         </div>
-
       </div>
-
     </div>
-
   </section>
 
   <section class="section">
-
     <div class="container testimonial-wrap">
-
       <div class="testimonial">
-
-        <p>
-          “Epic Kids Ltd has provided a caring, professional and supportive
-          environment that our family truly appreciates.”
-        </p>
-
-        <footer>
-          Parent Feedback
-        </footer>
-
+        <p>“Epic Kids Ltd has provided a caring, professional and supportive environment that our family truly appreciates.”</p>
+        <footer>Parent Feedback</footer>
       </div>
-
     </div>
-
   </section>
 
   <section class="section section-soft" id="contact">
-
     <div class="container">
-
       <div class="contact-box">
-
-        <p class="eyebrow">
-          Contact Us
-        </p>
-
-        <h2>
-          Get in touch with Epic Kids Ltd
-        </h2>
-
+        <p class="eyebrow">Contact Us</p>
+        <h2>Get in touch with Epic Kids Ltd</h2>
         <p class="lead">
           For enrolment information, childcare enquiries or general questions,
           please contact our team using the form below.
         </p>
 
         <form action="https://api.web3forms.com/submit" method="POST">
-
-          <input
-            type="hidden"
-            name="access_key"
-            value="c5dd83d6-cc98-4014-b854-9bd9bd6db31f"
-          >
-
-          <input
-            type="text"
-            name="name"
-            placeholder="Your Name"
-            required
-          >
-
-          <input
-            type="email"
-            name="email"
-            placeholder="Your Email Address"
-            required
-          >
-
-          <textarea
-            name="message"
-            placeholder="Your Message"
-            required
-          ></textarea>
-
-          <button type="submit" class="btn btn-primary">
-            Submit Enquiry
-          </button>
-
+          <input type="hidden" name="access_key" value="c5dd83d6-cc98-4014-b854-9bd9bd6db31f">
+          <input type="text" name="name" placeholder="Your Name" required>
+          <input type="email" name="email" placeholder="Your Email Address" required>
+          <textarea name="message" placeholder="Your Message" required></textarea>
+          <button type="submit" class="btn btn-primary">Submit Enquiry</button>
         </form>
-
       </div>
-
     </div>
-
   </section>
 
 </main>
 
 <footer>
-
   <div class="container">
-
     <div class="footer-grid">
-
       <div>
-
         <div class="logo">
-
-          <div class="logo-badge">
-            ◆
-          </div>
-
+          <div class="logo-badge">◆</div>
           <div>
-            <strong style="color:white;">
-              Epic Kids Ltd
-            </strong>
-
-            <small>
-              Professional Childcare Services
-            </small>
+            <strong style="color:white;">Epic Kids Ltd</strong>
+            <small>Professional Childcare Services</small>
           </div>
-
         </div>
-
         <p class="footer-text">
           Providing trusted childcare services in a safe,
           supportive and engaging environment.
         </p>
-
       </div>
 
       <div>
-
-        <h4>
-          Programmes
-        </h4>
-
+        <h4>Programmes</h4>
         <ul>
           <li>Early Development</li>
           <li>Pre-School Learning</li>
           <li>After School Care</li>
         </ul>
-
       </div>
 
       <div>
-
-        <h4>
-          Company
-        </h4>
-
+        <h4>Company</h4>
         <ul>
           <li>About Us</li>
           <li>Our Services</li>
           <li>Family Support</li>
         </ul>
-
       </div>
-
     </div>
 
     <div class="copyright">
       © 2026 Epic Kids Ltd. All rights reserved.
     </div>
-
   </div>
-
 </footer>
+
+<script>
+  // Simple Mobile Navigation Toggle Script
+  const hamburger = document.getElementById('hamburger');
+  const navMenu = document.getElementById('nav-menu');
+  const navLinks = document.querySelectorAll('#nav-menu a');
+
+  function toggleMenu() {
+    hamburger.classList.toggle('active');
+    navMenu.classList.toggle('active');
+  }
+
+  hamburger.addEventListener('click', toggleMenu);
+
+  // Close the overlay menu automatically when clicking any nav link
+  navLinks.forEach(link => {
+    link.addEventListener('click', () => {
+      if (navMenu.classList.contains('active')) {
+        toggleMenu();
+      }
+    });
+  });
+</script>
 
 </body>
 </html>
-```
